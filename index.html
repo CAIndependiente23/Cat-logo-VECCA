@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8eef0">
+<title>VECCA | Beauty & Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#34272b;--muted:#89777d;--rose:#d98e9d;--rose-dark:#b96e80;--pale:#f8eef0;--cream:#fffaf8;--line:#eadde0;--white:#fff;--shadow:0 14px 40px rgba(74,43,53,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}button,input,select{font:inherit}a{color:inherit;text-decoration:none}.announcement{background:#3d3035;color:#fff;text-align:center;padding:9px 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}.header{height:78px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,250,248,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}.brand{font-family:"Playfair Display",serif;font-size:30px;letter-spacing:.19em}.brand small{display:block;font:9px "DM Sans",sans-serif;letter-spacing:.36em;text-align:center;color:var(--muted);margin-top:1px}.nav{display:flex;gap:30px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.nav a:hover{color:var(--rose-dark)}.header-cta{border:1px solid var(--ink);padding:11px 18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:.2s}.header-cta:hover{background:var(--ink);color:#fff}
+.hero{min-height:570px;display:grid;grid-template-columns:1.05fr .95fr;background:linear-gradient(110deg,#f8eef0 0%,#f8eef0 53%,#f2dfe3 100%);overflow:hidden;position:relative}.hero-copy{padding:95px 8vw 85px 11vw;align-self:center;position:relative;z-index:2}.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--rose-dark);font-weight:700}.hero h1{font:500 clamp(48px,6vw,78px)/1.06 "Playfair Display",serif;margin:22px 0 20px;max-width:560px}.hero p{font-size:14px;line-height:1.9;color:#76666c;max-width:390px;margin:0 0 32px}.primary{display:inline-flex;background:var(--ink);color:white;padding:15px 25px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;border:0;cursor:pointer;transition:.2s}.primary:hover{background:var(--rose-dark);transform:translateY(-2px)}.hero-art{position:relative;min-height:500px;display:flex;align-items:center;justify-content:center}.hero-art:before{content:"";position:absolute;width:min(37vw,460px);height:min(37vw,460px);border-radius:50%;background:rgba(255,255,255,.45);right:13%;top:12%}.hero-art:after{content:"✿";position:absolute;font-size:330px;color:rgba(255,255,255,.66);right:17%;top:12%;transform:rotate(-18deg);font-family:serif}.flower{position:absolute;font-family:serif;color:#c77f91;opacity:.45;font-size:120px}.f1{right:8%;top:9%;transform:rotate(20deg)}.f2{left:12%;bottom:10%;font-size:90px;transform:rotate(-25deg)}.hero-stamp{position:relative;z-index:1;border:1px solid rgba(185,110,128,.45);border-radius:50%;width:205px;height:205px;display:grid;place-items:center;text-align:center;color:var(--rose-dark);font:italic 22px "Playfair Display",serif;transform:rotate(8deg)}.hero-stamp span{font:9px "DM Sans",sans-serif;letter-spacing:.25em;text-transform:uppercase;display:block;margin-top:8px}
+.benefits{display:flex;justify-content:center;gap:8vw;padding:23px 20px;border-bottom:1px solid var(--line);background:#fffdfa}.benefit{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.benefit b{color:var(--rose-dark);margin-right:8px}
+.section{padding:75px 6vw}.section-head{text-align:center;margin-bottom:35px}.section-head h2{font:500 42px "Playfair Display",serif;margin:10px 0}.section-head p{font-size:13px;color:var(--muted);margin:0}.toolbar{max-width:1200px;margin:0 auto 28px;display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}.search-wrap{position:relative;flex:1;min-width:220px;max-width:390px}.search-wrap input{width:100%;padding:13px 15px 13px 42px;border:1px solid var(--line);background:#fff;border-radius:0;outline:none;font-size:12px}.search-wrap:before{content:"⌕";position:absolute;left:15px;top:7px;font-size:24px;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;padding:11px 14px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer}.filter.active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}.sort{padding:11px;border:1px solid var(--line);background:white;font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 18px;max-width:1200px;margin:auto}.product{background:#fff;border:1px solid #f0e7e9;transition:.25s;min-width:0}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product-photo{height:255px;background:linear-gradient(145deg,#f8eff1,#f1e2e5);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.product-photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-placeholder{text-align:center;color:#bd8995}.photo-placeholder .sparkle{font:54px "Playfair Display",serif;opacity:.75}.photo-placeholder small{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-top:8px}.product-tag{position:absolute;top:12px;left:12px;background:rgba(255,250,248,.9);padding:7px 9px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose-dark)}.product-info{padding:17px 16px 18px}.product-category{font-size:9px;color:var(--rose-dark);letter-spacing:.16em;text-transform:uppercase}.product-name{font:500 19px/1.25 "Playfair Display",serif;margin:8px 0 12px;min-height:48px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-size:15px;font-weight:700}.ask{border:0;background:transparent;color:var(--rose-dark);font-size:10px;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;padding:8px 0}.empty{grid-column:1/-1;text-align:center;padding:55px 10px;color:var(--muted);font-size:13px}
+.about{background:#f7edef;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:7vw;padding:75px 11vw}.about-mark{height:300px;background:linear-gradient(135deg,#eed9de,#f9eff1);display:grid;place-items:center;position:relative;overflow:hidden}.about-mark:before{content:"✿";font-size:250px;color:rgba(255,255,255,.65);position:absolute}.about-mark span{font:italic 34px "Playfair Display",serif;z-index:1;color:#9f6674;letter-spacing:.1em}.about h2{font:500 40px "Playfair Display",serif;margin:12px 0}.about p{font-size:13px;line-height:1.9;color:#76666c;max-width:440px}.footer{background:#3d3035;color:#fff;padding:42px 6vw;text-align:center}.footer .brand{font-size:25px}.footer p{font-size:11px;color:#d7c5ca;letter-spacing:.08em}.footer-links{display:flex;justify-content:center;gap:22px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin:22px 0}
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:30;background:#3b8c68;color:white;border-radius:40px;padding:14px 19px;font-size:11px;letter-spacing:.08em;box-shadow:0 8px 25px #0002}.status{max-width:1200px;margin:0 auto 15px;color:var(--muted);font-size:10px;text-align:right}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-copy{padding-left:7vw}.hero-art:after{font-size:250px}.about{padding:60px 7vw}}
+@media(max-width:650px){.announcement{font-size:9px}.header{height:68px;padding:0 5vw}.brand{font-size:25px}.nav{display:none}.header-cta{padding:10px 12px;font-size:9px}.hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:65px 8vw 25px}.hero h1{font-size:52px}.hero-art{min-height:220px}.hero-art:before{width:190px;height:190px;top:0;right:23%}.hero-art:after{font-size:190px;top:-2%;right:24%}.hero-stamp{width:120px;height:120px;font-size:15px}.hero-stamp span{font-size:7px}.flower{font-size:70px}.benefits{gap:12px;justify-content:space-around}.benefit{font-size:8px;letter-spacing:.04em}.section{padding:55px 5vw}.section-head h2{font-size:35px}.toolbar{gap:10px}.search-wrap{max-width:none;flex-basis:100%}.filters{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.filter{white-space:nowrap}.sort{margin-left:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.product-photo{height:190px}.product-info{padding:13px 11px}.product-name{font-size:16px;min-height:42px}.price{font-size:13px}.ask{font-size:9px}.about{grid-template-columns:1fr;padding:50px 8vw;gap:28px}.about-mark{height:220px}.about h2{font-size:34px}.footer-links{flex-wrap:wrap}.whatsapp{right:13px;bottom:13px;padding:12px 15px}}
+</style>
+</head>
+<body>
+<div class="announcement">Belleza en cada detalle · Descubrí tu próximo favorito</div>
+<header class="header">
+  <a class="brand" href="#">VECCA<small>BEAUTY & CARE</small></a>
+  <nav class="nav"><a href="#inicio">Inicio</a><a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a></nav>
+  <a class="header-cta" href="#catalogo">Ver productos</a>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <div class="eyebrow">Tu belleza, tu esencia</div>
+    <h1>Pequeños rituales.<br>Grandes momentos.</h1>
+    <p>Una selección de maquillaje y cuidado personal para acompañarte todos los días. Encontrá ese detalle que te hace sentir vos.</p>
+    <a class="primary" href="#catalogo">Explorar catálogo</a>
+  </div>
+  <div class="hero-art" aria-hidden="true"><span class="flower f1">✿</span><span class="flower f2">❀</span><div class="hero-stamp">beauty<br>is a ritual<span>VECCA COSMETICS</span></div></div>
+</section>
+<div class="benefits"><div class="benefit"><b>✧</b> Belleza cotidiana</div><div class="benefit"><b>✧</b> Marcas seleccionadas</div><div class="benefit"><b>✧</b> Atención personalizada</div></div>
+<section class="section" id="catalogo">
+  <div class="section-head"><div class="eyebrow">Encontrá tus favoritos</div><h2>Nuestro catálogo</h2><p>Productos elegidos para vos.</p></div>
+  <div class="toolbar">
+    <div class="search-wrap"><input id="search" type="search" placeholder="Buscar producto o marca..." aria-label="Buscar producto o marca"></div>
+    <div class="filters" id="filters"></div>
+    <select class="sort" id="sort" aria-label="Ordenar productos"><option value="default">Ordenar por</option><option value="name">Nombre A–Z</option><option value="price-up">Menor precio</option><option value="price-down">Mayor precio</option></select>
+  </div>
+  <div class="status" id="status">Cargando catálogo...</div>
+  <div class="grid" id="products"></div>
+</section>
+<section class="about" id="nosotros">
+  <div class="about-mark"><span>VECCA</span></div>
+  <div><div class="eyebrow">Un mimo para vos</div><h2>La belleza está en los detalles.</h2><p>En VECCA creemos que los pequeños rituales hacen la diferencia. Por eso reunimos productos de maquillaje y cuidado personal para que encuentres tus esenciales y disfrutes cada momento.</p><a class="primary" href="#catalogo">Descubrir productos</a></div>
+</section>
+</main>
+<footer class="footer"><div class="brand">VECCA</div><p>BEAUTY & CARE</p><div class="footer-links"><a href="#inicio">Inicio</a><a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a></div><p>© <span id="year"></span> VECCA. Todos los derechos reservados.</p></footer>
+<a class="whatsapp" id="wa" href="#" target="_blank" rel="noopener">♡ Consultanos por WhatsApp</a>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+/*
+  CONEXIÓN CON GOOGLE SHEETS:
+  1) Publicá únicamente la pestaña "Público" como CSV (Archivo > Compartir > Publicar en la web).
+  2) Pegá aquí el enlace CSV publicado. No hace falta dar permisos de editor al sitio.
+  3) El HTML SOLO LEE esta pestaña. Para actualizar precios, editás Google Sheets.
+*/
+const SHEET_CSV_URL = ""; // Pegá aquí la URL CSV publicada de la pestaña pública.
+const WHATSAPP_NUMBER = "5491154222118"; // Argentina: 54 + 9 + 11 + número
+const INITIAL_PRODUCTS = [
+  {
+    "id": "P001",
+    "categoria": "Maquillaje",
+    "producto": "Gel marrón Pink 21",
+    "precio": "$ 3,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P002",
+    "categoria": "Maquillaje",
+    "producto": "Máscara de pestañas wp Pink 21",
+    "precio": "$ 4,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P003",
+    "categoria": "Maquillaje",
+    "producto": "Máscara Amora Pink 21",
+    "precio": "$ 4,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P004",
+    "categoria": "Maquillaje",
+    "producto": "Máscara Joy City Girl",
+    "precio": "$ 5,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P005",
+    "categoria": "Cuidado facial",
+    "producto": "Crema cápsulas Mely",
+    "precio": "$ 10,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P006",
+    "categoria": "Cuidado facial",
+    "producto": "Crema facial Mely",
+    "precio": "$ 9,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P007",
+    "categoria": "Cuidado facial",
+    "producto": "Crema mousse Mely",
+    "precio": "$ 9,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P008",
+    "categoria": "Protección solar",
+    "producto": "Protector solar City Girl",
+    "precio": "$ 13,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P009",
+    "categoria": "Accesorios",
+    "producto": "Esponjas City Girl",
+    "precio": "$ 2,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P010",
+    "categoria": "Cuidado facial",
+    "producto": "Mascarillas City Girl",
+    "precio": "$ 2,300",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P011",
+    "categoria": "Maquillaje",
+    "producto": "Gloss Amora Pink 21",
+    "precio": "$ 5,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P012",
+    "categoria": "Maquillaje",
+    "producto": "Velvet Drip City Girl",
+    "precio": "$ 6,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P013",
+    "categoria": "Maquillaje",
+    "producto": "Lip tint City Girl",
+    "precio": "$ 5,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P014",
+    "categoria": "Maquillaje",
+    "producto": "Plump Shimmer City Girl",
+    "precio": "$ 8,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P015",
+    "categoria": "Maquillaje",
+    "producto": "Delineadores Baking Pink 21",
+    "precio": "$ 2,400",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P016",
+    "categoria": "Maquillaje",
+    "producto": "Lip and Cheek City Girl",
+    "precio": "$ 7,000",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P017",
+    "categoria": "Maquillaje",
+    "producto": "Lip mask City Girl",
+    "precio": "$ 2,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P018",
+    "categoria": "Maquillaje",
+    "producto": "Rubores Joy City Girl",
+    "precio": "$ 5,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P019",
+    "categoria": "Maquillaje",
+    "producto": "Corrector City Girl",
+    "precio": "$ 6,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P020",
+    "categoria": "Maquillaje",
+    "producto": "Sombras Pink 21",
+    "precio": "$ 5,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P021",
+    "categoria": "Maquillaje",
+    "producto": "Delineador líquido Pink 21",
+    "precio": "$ 3,600",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P022",
+    "categoria": "Maquillaje",
+    "producto": "Gel Amora Pink 21",
+    "precio": "$ 4,500",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  },
+  {
+    "id": "P023",
+    "categoria": "Maquillaje",
+    "producto": "Gel cejas transparente Pink 21",
+    "precio": "$ 3,800",
+    "activo": "Sí",
+    "descripcion": "",
+    "imagen": ""
+  }
+];
+let products = INITIAL_PRODUCTS;
+let activeCategory = "Todos";
+
+function normalize(s){return String(s??"").toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+function parsePrice(v){if(typeof v==="number")return v;let s=String(v??"").replace(/[^\d,.-]/g,"").trim();if(!s)return 0;if(s.includes(",")&&s.includes("."))s=s.replace(/\./g,"").replace(",",".");else if(s.includes(","))s=s.replace(",",".");else if((s.match(/\./g)||[]).length>1)s=s.replace(/\./g,"");return Number(s)||0;}
+function money(v){return new Intl.NumberFormat("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0}).format(v);}
+function active(v){return ["si","sí","true","1","activo","yes"].includes(normalize(v).trim());}
+function mapRow(r){const get=(...keys)=>{for(const k of keys)if(r[k]!==undefined)return r[k];return ""};return {id:get("ID","id"),categoria:get("Categoría","Categoria","categoria"),producto:get("Producto","producto"),precio:parsePrice(get("Precio de venta (ARS)","Precio de venta","precio","Precio")),activo:get("Activo","activo"),descripcion:get("Descripción","Descripcion","descripcion"),imagen:get("URL de imagen","Imagen","imagen")};}
+async function loadSheet(){if(!SHEET_CSV_URL)return;try{const res=await fetch(SHEET_CSV_URL,{cache:"no-store"});if(!res.ok)throw new Error("No se pudo leer la planilla");const csv=await res.text();const parsed=Papa.parse(csv,{header:true,skipEmptyLines:true});if(parsed.errors.length)console.warn(parsed.errors);const rows=parsed.data.map(mapRow).filter(p=>p.id&&p.producto);if(rows.length)products=rows;else throw new Error("La pestaña pública no contiene productos reconocibles");}catch(e){console.warn("Se muestra la copia inicial del catálogo:",e);document.getElementById("status").textContent="Mostrando catálogo inicial. Revisá la conexión CSV para activar la actualización automática.";}}
+function categories(){return ["Todos",...new Set(products.filter(p=>active(p.activo)).map(p=>p.categoria).filter(Boolean))];}
+function renderFilters(){const el=document.getElementById("filters");el.innerHTML="";categories().forEach(c=>{const b=document.createElement("button");b.className="filter"+(c===activeCategory?" active":"");b.textContent=c;b.onclick=()=>{activeCategory=c;renderFilters();renderProducts()};el.appendChild(b)});}
+function renderProducts(){const term=normalize(document.getElementById("search").value);let list=products.filter(p=>active(p.activo)&& (activeCategory==="Todos"||p.categoria===activeCategory) && normalize(p.producto+" "+p.categoria+" "+p.descripcion).includes(term));const sort=document.getElementById("sort").value;if(sort==="name")list.sort((a,b)=>a.producto.localeCompare(b.producto,"es"));if(sort==="price-up")list.sort((a,b)=>a.precio-b.precio);if(sort==="price-down")list.sort((a,b)=>b.precio-a.precio);const grid=document.getElementById("products");grid.innerHTML="";document.getElementById("status").textContent=`${list.length} ${list.length===1?"producto disponible":"productos disponibles"}`;if(!list.length){grid.innerHTML='<div class="empty">No encontramos productos con esa búsqueda.</div>';return;}list.forEach(p=>{const card=document.createElement("article");card.className="product";const photo=document.createElement("div");photo.className="product-photo";if(p.imagen&&/^https?:\/\//i.test(p.imagen)){const img=document.createElement("img");img.src=p.imagen;img.alt=p.producto;img.loading="lazy";img.onerror=()=>{photo.innerHTML='<div class="photo-placeholder"><div class="sparkle">✿</div><small>VECCA · BEAUTY</small></div>'};photo.appendChild(img)}else photo.innerHTML='<div class="photo-placeholder"><div class="sparkle">✿</div><small>VECCA · BEAUTY</small></div>';const tag=document.createElement("span");tag.className="product-tag";tag.textContent=p.categoria||"Beauty";photo.appendChild(tag);const info=document.createElement("div");info.className="product-info";const cat=document.createElement("div");cat.className="product-category";cat.textContent=p.categoria;const name=document.createElement("h3");name.className="product-name";name.textContent=p.producto;const bottom=document.createElement("div");bottom.className="product-bottom";const price=document.createElement("span");price.className="price";price.textContent=money(p.precio);const ask=document.createElement("button");ask.className="ask";ask.textContent="Consultar ↗";ask.onclick=()=>contact(p);bottom.append(price,ask);info.append(cat,name,bottom);card.append(photo,info);grid.appendChild(card)});}
+function contact(p){const msg=encodeURIComponent(`¡Hola! Quería consultar por ${p.producto} (${money(p.precio)}).`);const url=WHATSAPP_NUMBER?`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`:`https://wa.me/?text=${msg}`;window.open(url,"_blank","noopener");}
+document.getElementById("search").addEventListener("input",renderProducts);document.getElementById("sort").addEventListener("change",renderProducts);document.getElementById("year").textContent=new Date().getFullYear();document.getElementById("wa").href=WHATSAPP_NUMBER?`https://wa.me/${WHATSAPP_NUMBER}`:"https://wa.me/";
+(async()=>{await loadSheet();renderFilters();renderProducts()})();
+</script>
+</body>
+</html>
